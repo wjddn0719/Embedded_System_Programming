@@ -30,7 +30,7 @@ int main(void){
 		printf("pigpio connecting failure.");
 		return 1;
 	}
-	
+	signal(SIGINT, on_sigint);	
 	set_mode(pi, LED, PI_OUTPUT);
 	set_mode(pi, BTN, PI_INPUT);
 	set_pull_up_down(pi, BTN, PI_PUD_UP);
