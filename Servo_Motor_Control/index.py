@@ -21,8 +21,11 @@ def index():
     return render_template('index.html')  
 
 @app.route('/api/angle', methods=['POST'])
+
 def control_servo():
+    print("/api/angle 요청 들어옴")
     data = request.get_json()
+    print("요청데이터: ", data)
     angle = data.get('angle')  # POST 요청에서 'angle' 값을 가져옴
 
     if angle is not None:
