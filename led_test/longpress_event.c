@@ -24,7 +24,7 @@ void apply_duty(int pi){
 	set_PWM_dutycycle(pi, LED, duty);
 	printf("Luminosity : %d/255\n", duty);
 	duty+=step;
-	if(duty>=255){
+	if(duty>255){
 		duty = 0;
 	}
 }
@@ -72,7 +72,7 @@ int main(void){
 	set_glitch_filter(pi, BTN, 30000);
 
 	apply_freq(pi);
-	apply_freq(duty);
+	apply_freq(pi);
 
 	int cb_id = callback(pi, BTN, EITHER_EDGE, btn_cb);
 
